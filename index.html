@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>JeevanRakshak | Emergency Assistant</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">✚</span>
+      JeevanRakshak
+    </a>
+    <span class="status"><span class="dot"></span> Emergency Support</span>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR SAFETY COMPANION</span>
+        <h1>Every second<br>can <span>save a life.</span></h1>
+        <p>Quick access to emergency contacts, location sharing and nearby hospitals.</p>
+        <button class="primary-btn" id="call112">☎ Call Emergency · 112</button>
+        <p class="micro">For emergencies in India. Your phone will ask you to confirm the call.</p>
+      </div>
+      <div class="hero-symbol" aria-hidden="true">
+        <div class="pulse-ring"></div>
+        <div class="cross">✚</div>
+        <span class="orbit orbit-one">+</span>
+        <span class="orbit orbit-two">✚</span>
+      </div>
+    </section>
+
+    <section class="notice">
+      <span>⚠</span>
+      <p><strong>Important:</strong> This is an assistance prototype. It does not automatically contact emergency services or dispatch an ambulance. For an actual emergency, call 112 directly.</p>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <span class="eyebrow">QUICK ACTIONS</span>
+        <h2>How can we help?</h2>
+      </div>
+      <span class="live-label">● READY</span>
+    </section>
+
+    <section class="action-grid">
+      <article class="card location-card">
+        <div class="card-icon red">⌖</div>
+        <h3>My Location</h3>
+        <p>Get your current GPS coordinates and a shareable map link.</p>
+        <button class="outline-btn" id="locateBtn">Find My Location</button>
+        <div id="locationResult" class="result" aria-live="polite">
+          Location has not been requested.
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon blue">⌂</div>
+        <h3>Nearby Hospitals</h3>
+        <p>Open a map search for hospitals near your current location.</p>
+        <button class="outline-btn" id="hospitalBtn">Find Hospitals</button>
+        <p class="small-note">Results and availability depend on the map provider.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon green">↗</div>
+        <h3>Emergency Alert</h3>
+        <p>Create a message containing your emergency type and location.</p>
+        <button class="outline-btn" id="alertBtn">Create Alert</button>
+        <p class="small-note">You choose whether to share or send it.</p>
+      </article>
+    </section>
+
+    <section class="details-grid">
+      <article class="panel">
+        <span class="eyebrow">EMERGENCY DETAILS</span>
+        <h2>Tell us what happened</h2>
+
+        <form id="emergencyForm">
+          <label for="personName">Your name (optional)</label>
+          <input id="personName" maxlength="80" placeholder="Enter your name">
+
+          <label for="emergencyType">Type of emergency</label>
+          <select id="emergencyType">
+            <option value="Medical emergency">Medical emergency</option>
+            <option value="Road accident">Road accident</option>
+            <option value="Fire emergency">Fire emergency</option>
+            <option value="Personal safety emergency">Personal safety</option>
+            <option value="Other emergency">Other</option>
+          </select>
+
+          <label for="details">Additional details (optional)</label>
+          <textarea id="details" maxlength="300" rows="3"
+            placeholder="Briefly describe the situation"></textarea>
+
+          <button class="primary-btn full-btn" type="submit">
+            Generate Emergency Message
+          </button>
+        </form>
+      </article>
+
+      <article class="panel">
+        <span class="eyebrow">YOUR MESSAGE</span>
+        <h2>Ready to share</h2>
+        <div id="messageOutput" class="message-output" aria-live="polite">
+          Your emergency message will appear here after you generate it.
+        </div>
+        <div class="button-row">
+          <button class="primary-btn" id="copyBtn" disabled>Copy Message</button>
+          <button class="outline-btn" id="shareBtn" disabled>Share</button>
+        </div>
+        <p class="small-note">Review the message and recipient before sharing. Location is included only if you obtain it.</p>
+      </article>
+    </section>
+
+    <section class="safety-panel">
+      <div>
+        <span class="eyebrow">REMEMBER</span>
+        <h2>Stay calm. Get help.</h2>
+        <p>Move to a safer place if possible, alert a trusted person, and follow instructions from emergency professionals.</p>
+      </div>
+      <a href="https://112.gov.in/" target="_blank" rel="noopener noreferrer">Official 112 India website ↗</a>
+    </section>
+
+    <footer>
+      <span>✚ JeevanRakshak</span>
+      <span>Student innovation project · Demo version</span>
+    </footer>
+  </main>
+
+<section class="accident-checker">
+  <h2>AI Accident Photo Analysis</h2>
+  <p>Upload a photo for preliminary visual assessment.</p>
+
+  <form id="accidentForm">
+    <label for="accidentPhoto">Choose accident photo</label>
+    <input
+      type="file"
+      id="accidentPhoto"
+      accept="image/jpeg,image/png,image/webp"
+      required
+    />
+
+    <img
+      id="photoPreview"
+      alt="Selected photo preview"
+      hidden
+    />
+
+    <button type="submit" id="analyzeButton">
+      Analyze Photo with AI
+    </button>
+  </form>
+
+  <p id="analysisStatus" role="status"></p>
+  <div id="analysisResult" aria-live="polite"></div>
+
+  <p class="disclaimer">
+    AI results are preliminary and cannot prove whether an
+    accident happened. Do not delay emergency assistance.
+  </p>
+</section>
+</body>
+</html>
+
+</body>
+</html>
